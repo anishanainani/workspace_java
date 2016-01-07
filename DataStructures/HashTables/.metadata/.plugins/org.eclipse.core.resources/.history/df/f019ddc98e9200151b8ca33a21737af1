@@ -1,0 +1,14 @@
+
+public class Main {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		HashTable<String, Integer> ht = new HashTableChaining<String,Integer>();
+		ht.put("Anisha", 1);
+		System.out.println(ht.get("Anisha"));
+
+	}
+
+}

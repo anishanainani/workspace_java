@@ -1,0 +1,95 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+
+
+public class DFS {
+	Graph g;
+	HashMap<String,Boolean> discovered;
+	HashMap<String,Boolean> processed;
+	HashMap<String,String> parent;
+	HashMap<String,Integer> start_time;
+	HashMap<String,Integer> end_time;
+	int time =0;
+	
+	DFS(Graph g){
+		this.g = g;
+		initialize();
+	}
+	
+	public void traverse(String s){
+		discovered.put(s, true);
+		time=time+1;
+		start_time.put(s, time);
+		
+		process_vertex(s);
+
+		if(g.adjacency_list.containsKey(s)){
+			ArrayList<String> adj = g.adjacency_list.get(s);
+			
+			for(int i = 0; i < adj.size(); ++i){
+				String node = adj.get(i);
+				if(!discovered.get(node)){
+					parent.put(node, s);
+					process_edge_findcycle(s,node);
+					traverse(node);
+				} else if(!processed.get(node) || g.isDirected){
+					process_edge_findcycle(s,node);
+				}
+					
+					
+			}
+		}
+		
+		end_time.put(s, time);
+		processed.put(s, true);
+			
+	}
+
+		
+	
+	
+	public void process_edge(String n1, String n2){
+		System.out.println("Processing edge : "+n1+" "+n2);
+	}
+	
+	public void process_edge_findcycle(String n1, String n2){
+		if(parent.get(n2)!=null && !parent.get(n1).equals(n2)){
+			System.out.println("Found a cycle from"+n1+" to "+n2);
+			
+		}
+		
+	}
+	
+	
+	
+	public void process_vertex(String n){
+		System.out.println("Processing vertex : "+n);
+	}
+	
+	public void initialize(){
+		discovered = new HashMap<String,Boolean>();
+		processed = new HashMap<String,Boolean>();
+		parent = new HashMap<String,String>();
+		start_time = new HashMap<String,Integer>();
+		end_time = new HashMap<String,Integer>();
+		
+		for(int i = 0; i<g.vertices.size();++i){
+			discovered.put(g.vertices.get(i),false);
+			processed.put(g.vertices.get(i),false);
+			parent.put(g.vertices.get(i),null);
+			start_time.put(g.vertices.get(i),0);
+			end_time.put(g.vertices.get(i),0);
+			
+		}
+	}
+	
+	public void find_path(String start, String end){
+		if(start.equals(end) || end==null){
+			System.out.print(start+" ");
+			return;
+		}
+		find_path(start,parent.get(end));
+		System.out.print(end+" ");
+		
+	}
+}

@@ -1,0 +1,98 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Set;
+
+
+
+public class BFS {
+	Graph g;
+	HashMap<String,Boolean> discovered;
+	HashMap<String,Boolean> processed;
+	HashMap<String,String> parent;
+	
+	BFS(Graph g){
+		this.g = g;
+	}
+	
+	public void traverse(String s){
+		initialize();
+		discovered.put(s, true);
+		parent.put(s, null);
+		ArrayList<String> queue = new ArrayList<String>();
+		queue.add(s);
+		
+		while(!queue.isEmpty()){
+			String n = queue.remove(0);
+			process_vertex(n);
+			
+			if(!g.adjacency_list.containsKey(n)){
+				continue;
+			}
+			ArrayList<String> adj = g.adjacency_list.get(n);
+			for(int i = 0; i < adj.size(); ++i){
+				String node = adj.get(i);
+				if(!processed.containsKey(node)){
+					processed.put(node, false);
+				}
+				
+				if(processed.containsKey(node) && !processed.get(node) || g.isDirected){
+					process_edge(n,node);
+				}
+				
+				
+				if(!discovered.containsKey(node)){
+					discovered.put(node, false);
+				}
+				
+				if(discovered.containsKey(node) && !discovered.get(node)){
+					discovered.put(node, true);
+					queue.add(node);
+					parent.put(node, n);
+				}
+				
+				
+			}
+			
+			processed.put(n, true);
+		}
+		
+		
+	}
+	
+	public void process_edge(String n1, String n2){
+		System.out.println("Processing edge : "+n1+" "+n2);
+	}
+	
+	public void process_vertex(String n){
+		System.out.println("Processing vertex : "+n);
+	}
+	
+	public void initialize(){
+		discovered = new HashMap<String,Boolean>();
+		processed = new HashMap<String,Boolean>();
+		parent = new HashMap<String,String>();
+	}
+	
+	public void find_path(String start, String end){
+		if(start.equals(end) || end==null){
+			System.out.print(start+" ");
+			return;
+		}
+		find_path(start,parent.get(end));
+		System.out.print(end+" ");
+		
+	}
+	
+	public void connected_components(){
+		int c = 1;
+		initialize();
+		Set<String> keyset = discovered.keySet();
+		for(String key : keyset){
+			if(!discovered.get(key)){
+				System.out.println("Component : "+c);
+				traverse(key);
+				c++;
+			}
+		}
+	}
+}

@@ -1,0 +1,106 @@
+import java.util.ArrayList;
+import java.util.LinkedList;
+
+
+
+public class HashTableOpenAddressing<Key,Value> extends HashTable<Key,Value> {
+	ArrayList<Node> hashtable;
+
+	public HashTableOpenAddressing(){
+		tableSize = 101;
+		
+		hashtable = new ArrayList<Node>();
+		for(int i = 0; i < tableSize; ++i){
+			hashtable.add(new Node());
+			hashtable.get(i).type = nodeType.EMPTY;
+		}
+		//System.out.println(hashtable.size());
+		
+		keySet = new ArrayList<Key>();
+	}
+
+	int hash1(String key, int t){
+		int hashValue = 0;
+
+		for(int i = 0; i < key.length(); ++i){
+			hashValue += 37*hashValue+(int)key.charAt(i);
+		}
+		hashValue%=t;
+		if(hashValue<0){
+			hashValue+=t;
+		}
+		return hashValue;
+	}
+	
+	int hash2(String key, int t){
+		int hashValue = 0;
+
+		for(int i = 0; i < key.length(); ++i){
+			hashValue += 37*hashValue+(int)key.charAt(i);
+		}
+		hashValue= t-hashValue%t;
+		if(hashValue<0){
+			hashValue+=t;
+		}
+		return hashValue;
+	}
+	
+	int double_hash(Key key,int i){
+		int hash1 = hash1(key.toString(),tableSize);
+		int hash2 = hash2(key.toString(),tableSize-4);
+		
+		int hash = (hash1+i*hash2)%tableSize;
+		if(hash<0){
+			hash+=tableSize;
+		}
+		return hash;
+		
+		
+	}
+
+	public void put(Key key, Value value){
+		
+		int i = 0;
+		if(containsKey(key)){
+			while(true){
+				int hash = double_hash(key,i);
+				if(hashtable.get(hash).type==nodeType.EMPTY || hashtable.get(hash).type==nodeType.DELETED){
+					continue;
+				}
+				
+				if(hashtable.get(hash).key.equals(key)){
+					hashtable.get(hash).value = value;
+				}
+			}
+		} else {
+			while(true){
+				int hash = double_hash(key,i);
+				if(hashtable.get(hash).type==nodeType.EMPTY || hashtable.get(hash).type==nodeType.DELETED){
+					hashtable.get(hash).key = key;
+					hashtable.get(hash).value = value;
+					hashtable.get(hash).type=nodeType.ACTIVE;
+					keySet.add(key);
+				}
+				++i;
+			}
+		}
+		
+	}
+	
+	public Value get(Key key){
+
+		int i = 0;
+		if(containsKey(key)){
+			while(true){
+				int hash = double_hash(key,i);
+				if(hashtable.get(hash).type==nodeType.ACTIVE && hashtable.get(hash).key.equals(key)){
+					return hashtable.get(hash).value;
+				}
+				++i;
+			}
+		} 
+		
+		return null;
+	}
+
+}

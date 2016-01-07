@@ -1,0 +1,46 @@
+import java.util.ArrayList;
+
+
+public class BinaryHeap {
+	
+	ArrayList<Integer> input;
+	int heapsize;
+	
+	public int parent(int i){
+		return i/2;
+	}
+	
+	public int left(int i){
+		return 2*i;
+	}
+	
+	public int right(int i){
+		return (2*i+1);
+	}
+	
+	public void max_heapify(int i,int heapsize){
+		int largest = i;
+		
+		if(left(i) <= heapsize && input.get(i) < input.get(left(i))){
+			largest = left(i);
+		}
+		
+		if(right(i) <= heapsize && input.get(largest) < input.get(right(i))){
+			largest = right(i);
+		}
+		
+		if(largest!=i){
+			int temp = input.get(i);
+			input.add(i, input.get(largest));
+			input.add(largest, temp);
+			
+			max_heapify(largest,heapsize);
+		}
+	}
+	
+	public void heap_insert(int key){
+		heapsize = heapsize+1;
+		input.add(Integer.MIN_VALUE);
+		insert_key(key,heapsize);
+	}
+}

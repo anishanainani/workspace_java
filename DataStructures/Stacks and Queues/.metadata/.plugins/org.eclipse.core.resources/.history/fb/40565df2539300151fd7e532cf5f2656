@@ -1,0 +1,10 @@
+
+public class Queue {
+
+		Stack<Integer> stack1;
+		Stack<Integer> stack2;
+		
+		Queue(){
+			stack1 = new Stack<Integer>();
+		}
+}

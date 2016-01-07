@@ -1,0 +1,32 @@
+{
+  "C:\\Users\\Anisha\\workspace\\workspace_java\\Stacks and Queues\\Stack\\src": {
+    "location": "C:\\Users\\Anisha\\workspace\\workspace_java\\Stacks and Queues\\Stack\\src",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027C:\\Users\\Anisha\\workspace\\workspace_java\\Stacks and Queues\\Stack\\src\u0027. Skipped."
+  },
+  "C:\\Users\\Anisha\\workspace\\workspace_java\\Stacks and Queues\\TowerOfHanoi\\src": {
+    "location": "C:\\Users\\Anisha\\workspace\\workspace_java\\Stacks and Queues\\TowerOfHanoi\\src",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027C:\\Users\\Anisha\\workspace\\workspace_java\\Stacks and Queues\\TowerOfHanoi\\src\u0027. Skipped."
+  },
+  "C:\\Users\\Anisha\\workspace\\workspace_java\\Stacks and Queues\\Queue\\src": {
+    "location": "C:\\Users\\Anisha\\workspace\\workspace_java\\Stacks and Queues\\Queue\\src",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027C:\\Users\\Anisha\\workspace\\workspace_java\\Stacks and Queues\\Queue\\src\u0027. Skipped."
+  },
+  "C:\\Users\\Anisha\\workspace\\workspace_java\\Stacks and Queues\\MinElement\\src": {
+    "location": "C:\\Users\\Anisha\\workspace\\workspace_java\\Stacks and Queues\\MinElement\\src",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027C:\\Users\\Anisha\\workspace\\workspace_java\\Stacks and Queues\\MinElement\\src\u0027. Skipped."
+  },
+  "C:\\Users\\Anisha\\workspace\\workspace_java\\Stacks and Queues\\QueueUsingTwoStacks\\src": {
+    "location": "C:\\Users\\Anisha\\workspace\\workspace_java\\Stacks and Queues\\QueueUsingTwoStacks\\src",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027C:\\Users\\Anisha\\workspace\\workspace_java\\Stacks and Queues\\QueueUsingTwoStacks\\src\u0027. Skipped."
+  },
+  "C:\\Program Files\\Java\\jdk1.8.0_40\\jre\\lib\\rt.jar": {
+    "coordinate": "jre:jre:zip:call:1.0.0",
+    "location": "C:\\Program Files\\Java\\jdk1.8.0_40\\jre\\lib\\rt.jar",
+    "status": "RESOLVED"
+  }
+}

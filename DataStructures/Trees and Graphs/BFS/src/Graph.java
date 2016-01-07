@@ -1,0 +1,81 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Set;
+
+
+class Graph{
+	public boolean isDirected;
+	public HashMap<String, ArrayList<String> > adjacency_list;
+	public int num_vertices;
+	public int num_edges;
+	ArrayList<String> vertices;
+
+	public Graph(){
+		isDirected = false;
+		adjacency_list = new HashMap<String, ArrayList<String>>();
+		num_vertices = 0;
+		num_edges = 0;
+		vertices = new ArrayList<String>();
+	}
+	public Graph(boolean isd, HashMap<String, ArrayList<String> > al, int nv, int ne){
+		isDirected = isd;
+		adjacency_list = al;
+		num_vertices = nv;
+		num_edges = ne;
+	}
+
+	public void addEdge(String n1, String n2){
+		
+		if(!vertices.contains(n1)){
+			vertices.add(n1);
+		}
+
+		if(!vertices.contains(n2)){
+			vertices.add(n2);
+		}
+		
+		if(isDirected){
+			if(!adjacency_list.containsKey(n1)){
+				adjacency_list.put(n1,new ArrayList<String>());
+			}
+			
+
+			if(!adjacency_list.get(n1).contains(n2)){
+				adjacency_list.get(n1).add(n2);
+				
+			}
+		} else {
+			if(!adjacency_list.containsKey(n1)){
+				adjacency_list.put(n1,new ArrayList<String>());
+			}
+			
+			if(!adjacency_list.containsKey(n2)){
+				adjacency_list.put(n2,new ArrayList<String>());
+			}
+			
+			
+			if(!adjacency_list.get(n1).contains(n2)){
+				adjacency_list.get(n1).add(n2);
+				
+			}
+				
+			
+			if(!adjacency_list.get(n2).contains(n1))
+				adjacency_list.get(n2).add(n1);
+		}
+	}
+
+	public void displayGraph(){
+		Set<String> keyset = adjacency_list.keySet();
+		for(String key : keyset){
+			ArrayList<String> nodes = adjacency_list.get(key);
+			
+			System.out.print(key+"-");
+			for(int j = 0; j < nodes.size(); ++j)
+				System.out.print(nodes.get(j)+" ");
+			System.out.println();
+		}
+		
+		System.out.println(vertices.size());
+	}
+}

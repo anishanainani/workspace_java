@@ -1,0 +1,20 @@
+
+public class Tower {
+	Stack<Integer> disks;
+	int index;
+	
+	public Tower(int i){
+		disks = new Stack<Integer>();
+		index = i;
+	}
+	
+	public void add(int n){
+		disks.push(n);
+	}
+	
+	public void moveToTop(Tower t){
+		int top = disks.pop();
+		t.add(top);
+		System.out.println("Move disk from Disk"+index+" to "+t.index);
+	}
+}

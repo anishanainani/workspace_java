@@ -1,0 +1,16 @@
+import java.util.Scanner;
+
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Scanner cin = new Scanner(System.in);
+		String input1 = cin.next();
+		String input2 = cin.next();
+		
+		char[][] T = new char[input1.length()][input2.length()];
+
+	}
+
+}

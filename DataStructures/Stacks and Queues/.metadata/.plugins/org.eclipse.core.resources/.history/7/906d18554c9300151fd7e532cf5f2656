@@ -1,0 +1,19 @@
+
+public class Main {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		Tower[] towers = new Tower[3];
+		for(int i = 0; i < 3; ++i){
+			towers[i] = new Tower(i);
+		}
+		for(int i = 1; i < 5; ++i){
+			towers[0].add(i);
+		}
+
+		towers[0].moveDisks(5, tower[2], tower[1]);
+	}
+
+}

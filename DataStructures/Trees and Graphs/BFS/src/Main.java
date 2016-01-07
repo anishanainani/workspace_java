@@ -1,0 +1,31 @@
+
+public class Main {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Graph g = new Graph();
+		g.isDirected=true;
+		g.addEdge("A", "K");
+		g.addEdge("A", "L");
+		g.addEdge("K", "S");
+		g.addEdge("L", "C");
+		g.addEdge("A", "Y");
+		g.addEdge("S", "A");
+
+		g.displayGraph();
+		
+		BFS bf= new BFS(g);
+		//bf.traverse("A");
+		
+		//bf.find_path("K", "C");
+		
+		//bf.connected_components();
+		bf.twoColor();
+		
+	}
+
+}

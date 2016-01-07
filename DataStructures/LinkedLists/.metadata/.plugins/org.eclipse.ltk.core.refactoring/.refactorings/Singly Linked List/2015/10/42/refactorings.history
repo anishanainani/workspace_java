@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 2 elements to &apos;MergeLists/src/(default package)&apos;&#x0D;&#x0A;- Original project: &apos;Singly Linked List&apos;&#x0D;&#x0A;- Destination element: &apos;MergeLists/src/(default package)&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     ListElement.java&#x0D;&#x0A;     SinglyLinkedList.java" description="Copy compilation units" destination="=MergeLists/src&lt;" element1="/src&lt;{ListElement.java" element2="/src&lt;{SinglyLinkedList.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1444947954591" units="2" version="1.0"/>
+</session>

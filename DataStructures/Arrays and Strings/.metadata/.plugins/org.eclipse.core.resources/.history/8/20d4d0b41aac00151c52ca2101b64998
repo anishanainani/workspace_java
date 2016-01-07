@@ -1,0 +1,108 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner cin = new Scanner(System.in);
+        
+        int T = cin.nextInt();
+        String[] out = new String[T];
+        
+        for(int i= 0; i < T; ++i){
+            String i1 = cin.next();
+            String i2 = cin.next();
+            char[] result = new char[i1.length() + i2.length()];
+            
+            int j = 0, k = 0, r = 0;
+            
+            while(j < i1.length() && k < i2.length()){
+                if(i1.charAt(j) <= i2.charAt(k)){
+                    result[r] = i1.charAt(j);
+                    ++j;
+                    ++r;
+                } else {
+                    result[r] = i2.charAt(k);
+                    ++k;
+                    ++r;
+                }
+            }
+            
+            optimized_quick_sort(i1,j,i1.length()-1);
+            optimized_quick_sort(i2,k,i2.length()-1);
+            while(j < i1.length()){
+                result[r] = i1.charAt(j);
+                ++j;
+                ++r;
+            }
+            
+            while(k < i2.length()){
+                result[r] = i2.charAt(k);
+                ++k;
+                ++r;
+            }
+            
+            out[i] = new String(result);
+        }
+        
+        for(int i = 0 ; i< T; ++i){
+            System.out.println(out[i]);
+        }
+    }
+    
+    public static void quick_sort(char[] n, int p, int r){
+		if(p<r){
+			int q= Partition(n,p,r);
+			quick_sort(n,p,q-1);
+			quick_sort(n,q+1,r);
+		}
+	}
+
+	public static int Partition(char[] n, int p, int r){
+		int pivot = n[r];
+		int i = p-1;
+		for(int j = p; j <r; ++j){
+			if(n[j] <= pivot){
+				++i;
+				char temp = n[i];
+				n[i] = n[j];
+				n[j] = temp;
+			}
+		}
+		char temp = n[i+1];
+		n[i+1] = n[r];
+		n[r] = temp;
+		return i+1;
+	}
+	
+	public static void optimized_quick_sort(char[] n, int p, int r){
+		
+		int piv = (p+r)/2;
+		int pivot = n[piv];
+		int i = p, j = r;
+		
+		while(i <= j){
+			while(n[i] < pivot) ++i;
+			while(n[j] > pivot) --j;
+			
+			if(i <= j){
+				char temp = n[i];
+				n[i] = n[j];
+				n[j] = temp;
+				++i;
+				--j;
+			}
+		}
+		
+		
+		if(p < j){
+			optimized_quick_sort(n, p, j);
+		} 
+		if(i < r){
+			optimized_quick_sort(n, i,r);
+		}
+	}
+}

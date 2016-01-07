@@ -1,0 +1,18 @@
+{
+  "C:\\Users\\Anisha\\workspace\\workspace_java\\Concurrency\\HelloWorld\\src": {
+    "location": "C:\\Users\\Anisha\\workspace\\workspace_java\\Concurrency\\HelloWorld\\src",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027C:\\Users\\Anisha\\workspace\\workspace_java\\Concurrency\\HelloWorld\\src\u0027. Skipped."
+  },
+  "C:\\Users\\Anisha\\workspace\\workspace_java\\Concurrency\\JavaSynchronizedExample\\src": {
+    "location": "C:\\Users\\Anisha\\workspace\\workspace_java\\Concurrency\\JavaSynchronizedExample\\src",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027C:\\Users\\Anisha\\workspace\\workspace_java\\Concurrency\\JavaSynchronizedExample\\src\u0027. Skipped."
+  },
+  "C:\\Program Files\\Java\\jdk1.8.0_40\\jre\\lib\\rt.jar": {
+    "coordinate": "jre:jre:zip:call:1.0.0",
+    "location": "C:\\Program Files\\Java\\jdk1.8.0_40\\jre\\lib\\rt.jar",
+    "status": "RESOLVED",
+    "error": "No class path info available for \u0027C:\\Program Files\\Java\\jdk1.8.0_40\\jre\\lib\\rt.jar\u0027. Skipped."
+  }
+}

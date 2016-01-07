@@ -1,0 +1,84 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner cin = new Scanner(System.in);
+        
+        int T = cin.nextInt();
+        String[] out = new String[T];
+        
+        for(int i= 0; i < T; ++i){
+            String i1 = cin.next();
+            String i2 = cin.next();
+           
+            
+            char[] result = new char[i1.length() + i2.length()];
+            
+            int j = 0, k = 0, r = 0;
+            
+            while(j < i1.length() && k < i2.length()){
+                if(i1.charAt(j) < i2.charAt(k)){
+                    result[r] = i1.charAt(j);
+                    ++j;
+                    ++r;
+                } else if(i1.charAt(j) > i2.charAt(k)){
+                    result[r] = i2.charAt(k);
+                    ++k;
+                    ++r;
+                } else {
+                	int tempj = j, tempk = k;
+                	while(i1.charAt(j) == i2.charAt(k)){
+                		j++;
+                		k++;
+                		result[r] = i1.charAt(j);
+                		
+                		if(j == i1.length()){
+                			k = tempk;
+                			break;
+         
+                		}
+                		
+                		if(k == i2.length()){
+                			j = tempj;
+                			break;
+                		}
+                	}
+                	
+                	if(j < i1.length() && k < i2.length())
+                		if(i1.charAt(j) < i2.charAt(k)){
+                			k = tempk;
+                		} else {
+                			j = tempj;
+                		}
+                	}
+                }
+            }
+            
+  
+            while(j < i1.length()){
+                result[r] = i1.charAt(j);
+                ++j;
+                ++r;
+            }
+            
+            while(k < i2.length()){
+                result[r] = i2.charAt(k);
+                ++k;
+                ++r;
+            }
+            
+            out[i] = new String(result);
+        }
+        
+        for(int i = 0 ; i< T; ++i){
+            System.out.println(out[i]);
+        }
+    }
+    
+
+}

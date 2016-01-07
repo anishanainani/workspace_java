@@ -1,0 +1,30 @@
+public class Stack<Element>{
+	Node<Element> top;
+	public Stack(){
+		top = null;
+	}
+	public void push(Element elem){
+		Node<Element> n = new Node<Element>();
+		n.data = elem;
+		n.next = top;
+		top = n;
+	}
+
+	public Element pop(){
+		if(top != null){
+			Element temp = top.data;
+			top=top.next;
+			return temp;
+		}
+
+		return null;
+	}
+	
+	public void displayAll(){
+		Node elem = top;
+		while(elem != null){
+			System.out.print()
+		}
+		
+	}
+}

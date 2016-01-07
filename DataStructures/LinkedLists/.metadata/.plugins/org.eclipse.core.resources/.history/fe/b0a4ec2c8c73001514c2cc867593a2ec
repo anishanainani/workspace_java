@@ -1,0 +1,17 @@
+
+public class Main {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		
+	}
+	
+	public static void mergeLists(SinglyLinkedList l1, SinglyLinkedList l2){
+		
+	}
+	
+	
+
+}

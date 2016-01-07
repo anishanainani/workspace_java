@@ -1,0 +1,7 @@
+INDEX VERSION 1.126+C:\Users\Anisha\workspace\workspace_java\Stacks and Queues\.metadata\.plugins\org.eclipse.jdt.core
+2361772636.index
+2995834453.index
+1415008178.index
+2679383525.index
+709730093.index
+513742818.index

@@ -1,0 +1,22 @@
+
+
+public class SinglyLinkedList<objType> {
+	ListElement<objType> head;
+	
+	SinglyLinkedList(ListElement<objType> h){
+		head = h;
+	}
+	
+	public boolean insertInFront(objType value){
+		ListElement<objType> newNode = new ListElement<objType>(value);
+		newNode.setNext(head);
+		head = newNode;
+		return true;
+	}
+	
+	public boolean delete(objType value){
+		
+		return true;
+	}
+	
+}

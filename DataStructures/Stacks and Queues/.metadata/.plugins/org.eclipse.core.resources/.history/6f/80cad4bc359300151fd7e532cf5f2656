@@ -1,0 +1,5 @@
+
+public class Node<Element> {
+	Element data;
+	Node next;
+}

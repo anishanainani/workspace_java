@@ -1,0 +1,80 @@
+import java.util.HashMap;
+import java.util.Scanner;
+
+
+public class Main {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		System.out.println(new Main().isAnagram("komal", "molak"));
+		
+	     Scanner cin = new Scanner(System.in);
+	        int T = cin.nextInt();
+	        
+	        for(int i = 0; i < T; ++i){
+	            String input = cin.next();
+	            int result = 0;
+	            for(int l = 1; l <=input.length(); ++l){
+	                for(int j = 0; j<input.length();++j){
+	                    for(int k = j+1; k<input.length();++k){
+	                        if( k+l-1 < input.length() && new Main().isAnagram(input.substring(j,j+l),input.substring(k,k+l))){
+	                            System.out.println(input.substring(j,j+l));
+	                            System.out.println(input.substring(k,k+l));
+	                        	result++;
+	                        }
+	                    }
+	                }
+	            }
+	            
+	            System.out.println(result);
+	        }
+
+	}
+	
+	public boolean isAnagram(String s1, String s2){
+	    int lengths1 = s1.length();
+	    int lengths2 = s2.length();
+	    
+	    if(lengths1 !=lengths2){
+	    	return false;
+	    }
+	        
+	    HashMap<Character, Integer> letters = new HashMap<Character, Integer>();
+	    int numUnique = 0;
+	    for(int i = 0; i < lengths1; ++i){
+	       if(letters.containsKey(s1.charAt(i))){
+	    	   int count = letters.get(s1.charAt(i));
+	           letters.put(s1.charAt(i), count+1);
+	       } else {
+	           letters.put(s1.charAt(i), 1);
+	           numUnique++;
+	       }
+	    }
+	        
+	    int i = 0, numUniqueS2 = 0;
+	    while(i<lengths2){
+	    	if(letters.containsKey(s2.charAt(i))){
+	    		int count = letters.get(s2.charAt(i));
+	            letters.put(s2.charAt(i), --count);
+	            if(count == 0){
+	            	numUniqueS2++;
+	                    
+	                if(numUniqueS2 == numUnique && i == lengths2-1){
+	                	return true;                
+	                }
+	            }
+	                
+	    	 } else {
+	    		 return false;
+	         }
+	            
+	         ++i;
+	           
+	    }
+	    
+	    return false;
+	}
+
+}

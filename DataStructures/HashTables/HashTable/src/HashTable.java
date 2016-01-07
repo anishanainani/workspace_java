@@ -1,0 +1,30 @@
+import java.util.ArrayList;
+
+public abstract class HashTable<Key, Value>{
+	ArrayList<Key> keySet;
+	ArrayList<Key> valueSet;
+	int tableSize;
+	public abstract void put(Key k, Value v);
+	public abstract Value get(Key key);
+	public boolean containsKey(Key key){
+		return keySet.contains(key);
+	}
+	
+	enum nodeType{
+		ACTIVE, EMPTY, DELETED;
+	}
+	public class Node{
+		Key key;
+		Value value;
+		nodeType type;
+		
+		Node(Key k, Value v){
+			key = k;
+			value = v;
+		}
+
+		public Node() {
+			
+		}
+	}
+}

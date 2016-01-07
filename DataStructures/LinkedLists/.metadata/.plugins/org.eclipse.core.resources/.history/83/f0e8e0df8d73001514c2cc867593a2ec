@@ -1,0 +1,22 @@
+
+public class Main {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		
+	}
+	
+	public static void mergeLists(SinglyLinkedList<Integer> l1, SinglyLinkedList<Integer> l2){
+		ListElement<Integer> elem1 = l1.head;
+		ListElement<Integer> elem2 = l2.head;
+		
+		while(){
+			while(head1.equals)
+		}
+	}
+	
+	
+
+}

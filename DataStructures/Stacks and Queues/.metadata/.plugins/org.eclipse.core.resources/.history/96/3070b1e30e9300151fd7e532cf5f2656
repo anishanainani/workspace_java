@@ -1,0 +1,22 @@
+
+public class Main {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		Stack<Integer> s = new Stack<Integer>();
+		s.push(3);
+		s.push(4);
+		s.push(5);
+		
+		s.displayAll();
+		
+		System.out.println(s.pop());
+		
+		s.displayAll();
+		
+
+	}
+
+}

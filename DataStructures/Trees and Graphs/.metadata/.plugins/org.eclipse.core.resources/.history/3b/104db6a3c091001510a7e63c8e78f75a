@@ -1,0 +1,83 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+
+
+public class DFS {
+	Graph g;
+	HashMap<String,Boolean> discovered;
+	HashMap<String,Boolean> processed;
+	HashMap<String,String> parent;
+	HashMap<String,Integer> start_time;
+	HashMap<String,Integer> end_time;
+	
+	DFS(Graph g){
+		this.g = g;
+	}
+	
+	public void traverse(String s){
+		initialize();
+		
+		
+		discovered.put(s, true);
+		
+		ArrayList<String> queue = new ArrayList<String>();
+		queue.add(s);
+		
+		while(!queue.isEmpty()){
+			String n = queue.remove(0);
+			process_vertex(n);
+			
+			if(!g.adjacency_list.containsKey(n)){
+				continue;
+			}
+			
+			
+			ArrayList<String> adj = g.adjacency_list.get(n);
+			
+			for(int i = 0; i < adj.size(); ++i){
+				String node = adj.get(i);
+			
+				if(!processed.get(node) || g.isDirected){
+					process_edge(n,node);
+				}
+		
+				if(!discovered.get(node)){
+					discovered.put(node, true);
+					queue.add(node);
+					parent.put(node, n);
+				}
+				
+				
+			}
+			
+			processed.put(n, true);
+		}
+		
+		
+	}
+	
+	public void process_edge(String n1, String n2){
+		System.out.println("Processing edge : "+n1+" "+n2);
+	}
+	
+	
+	
+	public void process_vertex(String n){
+		System.out.println("Processing vertex : "+n);
+	}
+	
+	public void initialize(){
+		discovered = new HashMap<String,Boolean>();
+		processed = new HashMap<String,Boolean>();
+		parent = new HashMap<String,String>();
+		start_time = new HashMap<String,Integer>();
+		end_time = new HashMap<String,Integer>();
+		
+		for(int i = 0; i<g.vertices.size();++i){
+			discovered.put(g.vertices.get(i),false);
+			processed.put(g.vertices.get(i),false);
+			parent.put(g.vertices.get(i),null);
+			
+		}
+	}
+}

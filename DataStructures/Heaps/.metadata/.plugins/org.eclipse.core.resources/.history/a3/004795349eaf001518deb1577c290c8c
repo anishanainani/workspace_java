@@ -1,0 +1,61 @@
+
+public class Main {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	public int parent(int i){
+		return i/2;
+	}
+	
+	public int left(int i){
+		return 2*i;
+	}
+	
+	public int right(int i){
+		return (2*i+1);
+	}
+	
+	public void max_heapify(int[] input,int i){
+		int largest = i;
+		
+		if(input[i] < input[left(i)]){
+			largest = left(i);
+		}
+		
+		if(input[largest] < input[right(i)]){
+			largest = right(i);
+		}
+		
+		if(largest!=i){
+			int temp = input[i];
+			input[i] = input[largest];
+			input[largest] = temp;
+		}
+	}
+	
+	public void build_max_heap(int[] input){
+		for(int i = input.length/2; i >= 1; --i){
+			max_heapify(input,i);
+		}
+	}
+	
+	public void heap_sort(int[] input){
+		build_max_heap(input);
+		int heapsize = input.length;
+		for(int i = input.length; i <= 2; --i){
+			int temp = input[i];
+			input[1] = input[heapsize];
+			input[heapsize] = temp;
+			heapsize--;
+			
+			max_heapify(input,1);
+		}
+	}
+
+}

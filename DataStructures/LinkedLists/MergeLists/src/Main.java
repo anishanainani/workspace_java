@@ -1,0 +1,66 @@
+
+public class Main {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		SinglyLinkedList<Integer> s1 = new SinglyLinkedList<Integer>();
+		s1.insertInFront(7);
+		s1.insertInFront(5);
+		s1.insertInFront(3);
+		
+		SinglyLinkedList<Integer> s2 = new SinglyLinkedList<Integer>();
+		s2.insertInFront(8);
+		s2.insertInFront(6);
+		s2.insertInFront(4);
+		
+		mergeLists(s1,s2).displayAll();
+		 
+		
+		
+		
+	}
+	
+	public static SinglyLinkedList<Integer> mergeLists(SinglyLinkedList<Integer> l1, SinglyLinkedList<Integer> l2){
+		ListElement<Integer> elem1 = l1.head;
+		ListElement<Integer> elem2 = l2.head;
+		SinglyLinkedList<Integer> r = null;
+		
+		ListElement<Integer> temp = null;
+		while(elem1!=null && elem2!=null){
+			if(elem1.value < elem2.value){
+				if(r == null){
+					r = l1;
+				}
+				while(elem1!=null && elem1.value < elem2.value){
+					temp = elem1;
+					elem1=elem1.next;
+				}
+				
+				temp.next = elem2;
+				
+			}
+			
+			if(elem1!=null){
+				if(r == null){
+					r = l2;
+				}
+				while(elem2!=null && elem2.value < elem1.value){
+					temp = elem2;
+					elem2=elem2.next;
+				}
+				
+				temp.next = elem1;
+			}
+	
+			
+		}
+		
+		return r;
+		
+	}
+	
+	
+
+}

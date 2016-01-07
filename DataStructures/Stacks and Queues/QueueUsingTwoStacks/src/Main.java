@@ -1,0 +1,17 @@
+
+public class Main {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		Queue s = new Queue();
+		s.enqueue(3);
+		s.enqueue(4);
+		s.enqueue(5);
+		System.out.println(s.dequeue());
+		
+		s.enqueue(1);
+	}
+
+}

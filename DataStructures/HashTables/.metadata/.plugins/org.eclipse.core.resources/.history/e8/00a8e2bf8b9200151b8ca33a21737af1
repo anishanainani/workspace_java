@@ -1,0 +1,47 @@
+import java.util.ArrayList;
+import java.util.LinkedList;
+
+public class HashTableChaining<Key,Value> extends HashTable<Key,Value>{
+	ArrayList<LinkedList<Node> > hashtable;
+
+	public HashTableChaining(){
+		tableSize = 101;
+		hashtable = new ArrayList<LinkedList<Node> >(tableSize);
+	}
+
+	int hash(String key){
+		int hashValue = 0;
+
+		for(int i = 0; i < key.length(); ++i){
+			hashValue += 37*hashValue+(int)key.charAt(i);
+		}
+		hashValue%=tableSize;
+		if(hashValue<0){
+			hashValue+=tableSize;
+		}
+		return hashValue;
+	}
+
+	public void put(Key key, Value value){
+		
+		int hash = hash(key.toString());
+		if(hashtable.get(hash) == null){
+			hashtable.add(hash, new LinkedList<Node<Key,Value> >());
+		}
+		if(containsKey(key)){
+			LinkedList<Node> list = hashtable.get(hash);
+			for(int i =0; i<list.size(); ++i){
+				if(list.get(i).key.equals(key)){
+					list.get(i).value = value;
+				}
+			}
+		} else {
+			hashtable.get(hash).add(new Node(key, value));
+			keySet.add(key);
+		}
+	}
+	
+	public Value get(Key key){
+		return null;
+	}
+}

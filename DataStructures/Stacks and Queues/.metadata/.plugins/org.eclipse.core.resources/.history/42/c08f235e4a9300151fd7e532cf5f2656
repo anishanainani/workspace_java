@@ -1,0 +1,12 @@
+
+public class Tower {
+	Stack<Integer> disks;
+	
+	public Tower(){
+		disks = new Stack<Integer>();
+	}
+	
+	public void add(int n){
+		disks.push(n);
+	}
+}

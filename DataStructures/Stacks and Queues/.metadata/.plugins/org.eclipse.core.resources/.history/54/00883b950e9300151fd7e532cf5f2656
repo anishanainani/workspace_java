@@ -1,0 +1,27 @@
+public class Queue<Element>{
+	Node front;
+	Node tail;
+	public Queue(){
+		front = null;
+		tail = null;
+	}
+	public void push(Element elem){
+		Node n = new Node(elem);
+		tail.next = n;
+		tail = n;
+		if(front == null){
+			front = n;
+		}
+	}
+
+	public Element pop(){
+		if(front != null){
+			Element temp = front.data;
+			front=front.next;
+			return temp;
+		}
+
+		return null;
+	}
+}
+

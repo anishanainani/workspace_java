@@ -1,0 +1,21 @@
+public class Stack<Element>{
+	Node top;
+	public Stack(){
+		top = null;
+	}
+	public void push(Element elem){
+		Node n = new Node(elem);
+		n.next = top;
+		top = n;
+	}
+
+	public Element pop(){
+		if(top != null){
+			Element temp = top.data;
+			top=top.next;
+			return temp;
+		}
+
+		return null;
+	}
+}

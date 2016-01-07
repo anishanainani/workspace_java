@@ -1,0 +1,50 @@
+public class Stack{
+	Node top;
+	Stack minStack;
+	int size;
+	
+	public Stack(){
+		top = null;
+		size = 0;
+		minStack = new Stack();
+	}
+	public void push(int elem){
+		Node n = new Node();
+		
+		if(top==null){
+			minStack.push(elem);
+		}else {
+			if(minStack.pop() < elem){
+				minStack.push(elem);
+			}
+		}
+		
+		
+		n.data = elem;
+		n.next = top;
+		top = n;
+		size++;
+	}
+
+	public int pop(){
+		if(top != null){
+			int temp = top.data;
+			top=top.next;
+			size--;
+			return temp;
+		}
+
+		return -1;
+	}
+	
+	public void displayAll(){
+		Node elem = top;
+		while(elem != null){
+			System.out.print(elem.data+ " ");
+			elem=elem.next;
+		}
+		
+	}
+	
+	
+}
