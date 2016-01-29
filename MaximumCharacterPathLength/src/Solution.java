@@ -5,8 +5,8 @@ class Solution {
 	
 	public static void main(String[] args){
 		
-		//String input = "dir1\n dir11\n dir12\n  dir121\n   picture1.jpeg\n   image1.png\n dir13\n  picture2.jpeg\ndir2\n picture3.jpeg";
-		String input = "dir1";
+		String input = "dir1\n dir11\n dir12\n  dir121\n   picture1.jpeg\n   image1.png\n dir13\n  picture2.jpeg\ndir2\n picture3.jpeg";
+		//String input = "dir1";
 		
 		System.out.println("Input : ");
 		System.out.println(input);
