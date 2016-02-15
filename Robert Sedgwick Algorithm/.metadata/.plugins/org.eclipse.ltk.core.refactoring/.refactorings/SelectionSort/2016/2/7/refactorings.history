@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 2 elements to &apos;InsertionSort/src&apos;&#x0D;&#x0A;- Original project: &apos;SelectionSort&apos;&#x0D;&#x0A;- Destination element: &apos;InsertionSort/src&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     Main.java&#x0D;&#x0A;     Selection.java" description="Copy compilation units" destination="=InsertionSort/src" element1="/src&lt;{Main.java" element2="/src&lt;{Selection.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1455253328863" units="2" version="1.0"/>
+</session>

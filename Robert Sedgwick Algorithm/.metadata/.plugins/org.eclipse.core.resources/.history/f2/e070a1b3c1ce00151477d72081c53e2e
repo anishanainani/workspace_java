@@ -1,0 +1,13 @@
+
+public class Main {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		Integer[] input = {4,2,8,1,9,3};
+		
+		QuickSort.sort(input);
+	}
+
+}

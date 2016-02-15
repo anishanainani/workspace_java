@@ -1,0 +1,16 @@
+
+public class Selection {
+	public static void sort(Comparable[] a){
+		
+	}
+	
+	public static int less(Comparable a, Comparable b){
+		return (a.compareTo(b));
+	}
+	
+	public void exch(Comparable[] a, int i, int j){
+		Comparable swap = a[i];
+		a[i] = a[j];
+		a[j] = swap;
+	}
+}

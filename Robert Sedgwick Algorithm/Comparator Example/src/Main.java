@@ -1,0 +1,73 @@
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.function.Function;
+import java.util.function.ToDoubleFunction;
+import java.util.function.ToIntFunction;
+import java.util.function.ToLongFunction;
+
+
+public class Main {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		Date[] dates = new Date[6];
+		dates[0] = new Date(2, 3, 1992);
+		dates[1] = new Date(3, 9, 1993);
+		dates[2] = new Date(9, 4, 1992);
+		dates[3] = new Date(21, 3, 1993);
+		dates[4] = new Date(26, 3, 1994);
+		dates[5] = new Date(30, 10, 1992);
+		
+		//Arrays.sort(dates, new DateComparator());
+		Insertion.sort(dates, new DateComparator());
+		show(dates);
+	}
+	
+	public static class Date{
+		int day, month, year;
+		
+		public Date(int d, int m, int y){
+			day = d;
+			month = m;
+			year = y;
+		}
+		
+		public String toString(){
+			return day+"/"+month+"/"+year;
+		}
+	}
+	
+	public static class DateComparator implements Comparator<Date>{
+		public int compare(Date d1, Date d2){
+			if(d1.year < d2.year)
+				return -1; 
+				
+			if(d1.year > d2.year)
+				return 1;
+				
+			if(d1.month < d2.month)
+				return -1;
+				
+			if(d1.month > d2.month)
+				return 1;
+				
+			if(d1.day < d2.day)
+				return -1;
+				
+			if(d1.day > d2.day)
+				return 1;
+				
+			return 0;
+		}
+		
+	}
+	
+	public static void show(Object[] a){
+		for(int i = 0; i<a.length; ++i){
+			System.out.println(((Date)a[i]).toString());
+		}
+	}
+
+}

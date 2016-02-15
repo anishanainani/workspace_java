@@ -1,0 +1,24 @@
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Random;
+
+
+public class QuickSort {
+	public static boolean less(Comparable a, Comparable b){
+		return (a.compareTo(b) < 0);
+	}
+	
+	public static void exch(Comparable[] a, int i, int j){
+		Comparable swap = a[i];
+		a[i] = a[j];
+		a[j] = swap;
+	}
+	
+	public static void sort(Comparable[] a){
+		Collections.shuffle(Arrays.asList(a));
+		for(int i = 0; i < a.length; ++i){
+			System.out.println(a[i]);
+		}
+	}
+	
+}

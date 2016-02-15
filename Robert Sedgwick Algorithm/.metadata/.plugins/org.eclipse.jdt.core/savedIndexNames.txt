@@ -1,0 +1,10 @@
+INDEX VERSION 1.126+C:\Users\Anisha\workspace\workspace_java\Robert Sedgwick Algorithm\.metadata\.plugins\org.eclipse.jdt.core
+3124027266.index
+3285723811.index
+3756082609.index
+3923539333.index
+1875211503.index
+576420898.index
+1579454944.index
+2426632008.index
+2800461457.index

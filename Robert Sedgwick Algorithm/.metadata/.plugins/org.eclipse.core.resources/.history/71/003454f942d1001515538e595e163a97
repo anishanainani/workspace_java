@@ -1,0 +1,11 @@
+
+public class Selection {
+	public static void sort(Comparable[] a){
+		
+	}
+	
+	public static int less(Comparable a, Comparable b){
+		return (a.compareTo(b));
+	}
+	
+}

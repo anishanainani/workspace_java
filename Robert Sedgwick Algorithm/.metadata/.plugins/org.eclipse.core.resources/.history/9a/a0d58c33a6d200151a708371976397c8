@@ -1,0 +1,27 @@
+import java.util.Random;
+
+
+public class ShuffleArray {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	public static void shuffle(Object[] a){
+		int N = a.length;
+		Random rng = new Random();
+		for(int i = 1; i < N; ++i){
+			int r = rng.nextInt(i+1);
+			exch(a, i, r);
+		}
+	}
+	
+	public static void exch(Object[] a, int i, int j){
+		
+	}
+
+}

@@ -1,0 +1,22 @@
+import java.util.Random;
+
+
+public class ShuffleArray {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	public static void shuffle(Object[] a){
+		int N = a.length;
+		Random rng = new Random();
+		for(int i = 1; i < N; ++i){
+			int r = rng.random(i);
+		}
+	}
+
+}

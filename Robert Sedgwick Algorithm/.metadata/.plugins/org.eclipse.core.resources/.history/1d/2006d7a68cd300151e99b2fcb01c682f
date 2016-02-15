@@ -1,0 +1,24 @@
+
+public class Main {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		Date d1 = new Date(1,2,1992);
+		Date d2 = new Date(1,2,1993);
+		
+		
+	}
+	
+	public static class Date{
+		int day, month, year;
+		
+		public Date(int d, int m, int y){
+			day = d;
+			month = m;
+			year = y;
+		}
+	}
+
+}
